@@ -21,6 +21,8 @@ dotenv.config();
 const PORT = process.env.PORT || 7000;
 const URL = process.env.MONGOURL;
 
+await mongoose.connection.collection("users").dropIndex("email_1");
+
 mongoose.connect(URL).then(()=>{
 
     console.log("DB connected successfully");
